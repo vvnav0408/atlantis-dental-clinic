@@ -47,16 +47,15 @@ export default function Testimonials() {
           {/* Rating Display */}
           <div className="flex flex-col items-center mb-8">
             <div className="flex items-center gap-4 mb-2">
-              <span className="text-5xl font-bold text-white leading-none">{reviewData.rating.toFixed(1)}</span>
+              <span className="text-5xl font-bold text-white leading-none">5.0</span>
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-8 h-8 fill-[#FBBC05] text-[#FBBC05]" />
                 ))}
               </div>
             </div>
-            <p className="text-blue-200 text-sm flex items-center gap-2">
-              Based on {reviewData.user_ratings_total} Google reviews
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border border-blue-200 text-[10px]">i</span>
+            <p className="text-blue-200 text-sm font-medium tracking-wide">
+              230+ Reviews • Trusted by patients across Kochi
             </p>
           </div>
 
@@ -67,7 +66,7 @@ export default function Testimonials() {
             className="bg-white text-slate-800 font-semibold px-8 py-3 rounded-full flex items-center gap-3 hover:bg-slate-50 transition-colors shadow-lg"
           >
             <GoogleLogo />
-            <span>Read more reviews on Google</span>
+            <span>Read Reviews on Google</span>
             <ExternalLink size={16} className="text-slate-400" />
           </a>
         </div>

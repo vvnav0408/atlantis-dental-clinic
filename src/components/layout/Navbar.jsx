@@ -18,8 +18,12 @@ export default function Navbar() {
       scrolled ? "bg-white/95 py-4 shadow-sm border-gray-100" : "bg-white/80 py-6 border-transparent"
     )}>
       <div className="container mx-auto px-6 flex justify-between items-center max-w-7xl">
-        <a href="#" className="flex items-center">
-          <img src="/images/logo.jpg" alt="Atlantis Dental Clinic Logo" className="h-10 md:h-12 w-auto mix-blend-multiply" />
+        <a href="#" className="flex items-center gap-3">
+          <img src="/images/logo.jpg" alt="Atlantis Dental Clinic Logo" className="h-12 md:h-16 w-auto mix-blend-multiply shrink-0" />
+          <div className="flex flex-col">
+            <span className="font-serif font-bold text-[#1a3673] text-xl md:text-2xl leading-none tracking-tight">Atlantis</span>
+            <span className="text-green-600 text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase mt-1 leading-none">Dental Clinic</span>
+          </div>
         </a>
 
         {/* Desktop Nav */}

@@ -15,7 +15,7 @@ export default function Contact() {
       <div className="container mx-auto px-6 max-w-5xl">
 
         {/* Section Heading */}
-        <div className="text-center mb-12 md:mb-20 lg:mb-24">
+        <div className="text-center mb-12 lg:mb-16">
           <span className="text-green-600 font-bold uppercase tracking-[0.2em] text-sm mb-3 block">Get In Touch</span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900">Contact Us</h2>
         </div>

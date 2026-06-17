@@ -13,12 +13,10 @@ export default function Footer() {
           
           <div className="lg:col-span-1">
             <a href="#" className="flex items-center gap-3 mb-6 bg-white/5 p-4 rounded-2xl w-max">
-              <svg viewBox="0 0 24 24" className="w-8 h-8 fill-blue-500">
-                <path d="M12 20.32l-1.396-2.58C9.263 15.26 8.607 13.91 7.985 13.16 7.362 12.41 6.54 12 5.5 12c-1.93 0-3.5-1.57-3.5-3.5 0-2.48 2.015-4.5 4.5-4.5 1.517 0 2.87.75 3.666 1.905.474.686 1.05 1.095 1.834 1.095.783 0 1.36-.408 1.835-1.095C14.63 4.75 15.984 4 17.5 4 19.985 4 22 6.02 22 8.5c0 1.93-1.57 3.5-3.5 3.5-1.04 0-1.862.41-2.486 1.16-.622.748-1.278 2.096-2.618 4.578L12 20.32z" />
-              </svg>
-              <div className="flex flex-col leading-tight">
-                <span className="font-serif font-bold text-lg text-white tracking-wide">ATLANTIS</span>
-                <span className="text-[9px] font-bold text-green-400 tracking-[0.2em]">DENTAL CLINIC</span>
+              <img src="/images/logo.jpg" alt="Atlantis Dental Clinic Logo" className="h-10 w-auto mix-blend-screen shrink-0" />
+              <div className="flex flex-col">
+                <span className="font-serif font-bold text-white text-xl leading-none tracking-tight">Atlantis</span>
+                <span className="text-green-400 text-[10px] font-bold tracking-[0.15em] uppercase mt-1 leading-none">Dental Clinic</span>
               </div>
             </a>
             <p className="text-slate-400 leading-relaxed mb-6">
@@ -65,8 +63,8 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 text-lg">Contact Info</h4>
             <ul className="space-y-4 text-slate-400">
               <li>Atlantis Dental Clinic,<br/>Kizhavana Road, Panampilly Nagar,<br/>Kochi, Kerala, India</li>
-              <li>[Update Phone Number]</li>
-              <li>[Update Email Address]</li>
+              <li>08848832050</li>
+              <li>info@atlantisdental.in</li>
             </ul>
           </div>
 
