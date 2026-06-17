@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantis Dental Clinic</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #16a34a;
+            --accent-hover: #15803d;
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-light: #64748b;
+            --white: #FFFFFF;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(37, 99, 235, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Nav */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .navbar.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary);
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-item {
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-gold {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-gold:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 120px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            border-radius: 300px 300px 20px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            top: -25%;
+            left: -25%;
+        }
+
+        .floating-tooth {
+            width: 140px;
+            height: 140px;
+            fill: var(--white);
+            opacity: 0.9;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        /* Stats */
+        .stats {
+            background: var(--white);
+            padding: 60px 0;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-weight: 500;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        /* Common */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .py-120 {
+            padding: 120px 0;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(13, 124, 124, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+            transition: var(--transition);
+        }
+
+        .service-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card:hover h4,
+        .service-card:hover p {
+            color: var(--white);
+        }
+
+        .service-card:hover .service-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card:hover .service-icon svg {
+            fill: var(--white);
+        }
+
+        /* About */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .about-item {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: rgba(201, 168, 76, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--accent);
+        }
+
+        .about-item h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            position: relative;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testi-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            border-top: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .testi-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+
+        .stars svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+        }
+
+        .testi-text {
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .testi-author h5 {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-info {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo .logo-title {
+            color: var(--white);
+        }
+
+        .footer-logo svg {
+            fill: var(--white);
+        }
+
+        .footer h4 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--white);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .close-modal svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Gallery */
+        .gallery {
+            background: var(--bg-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: var(--white);
+            font-size: 44px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 3001;
+            line-height: 1;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .gallery-item {
+            cursor: zoom-in;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        /* Gallery Filters */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            background: var(--white);
+            border: 2px solid transparent;
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-btn:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(13, 124, 124, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid,
+            .testi-grid,
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .nav-links,
+            .navbar .btn {
+                display: none;
+            }
+
+            /* 1. Hero Spacing and Icon */
+            .hero {
+                padding-top: 90px;
+                min-height: auto;
+                padding-bottom: 40px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.75rem;
+                margin-bottom: 16px;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+                margin: 0 auto 24px;
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero-visual {
+                height: 280px;
+                width: 280px;
+                margin: 0 auto;
+                border-radius: 140px 140px 20px 20px;
+            }
+
+            .floating-tooth {
+                width: 80px;
+                height: 80px;
+            }
+
+            /* 2. General Section Spacing */
+            .py-120 {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 35px;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            /* Grid optimizations */
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .about-item {
+                padding: 24px 16px;
+            }
+
+            .testi-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .testi-card {
+                padding: 30px 20px;
+            }
+
+            /* 3. Testimonials Top Spacing */
+            .testimonials {
+                padding-top: 40px;
+            }
+
+            /* 5. Clinic Photos Spacing */
+            .gallery {
+                padding-bottom: 40px;
+            }
+
+            .gallery-filters {
+                margin-bottom: 30px;
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            /* 6. Contact Section & Map Separation */
+            .contact {
+                padding-top: 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                box-shadow: none;
+                background: transparent;
+                overflow: visible;
+                border-radius: 0;
+                gap: 24px;
+            }
+
+            .contact-info {
+                padding: 40px 24px;
+                border-radius: 20px;
+                box-shadow: var(--shadow-md);
+            }
+
+            .map-container {
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: var(--shadow-md);
+                height: 300px;
+            }
+
+            .map-container iframe {
+                min-height: 300px;
+            }
+
+            /* Footer gap and padding */
+            .footer {
+                padding: 60px 0 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                margin-bottom: 40px;
+            }
+
+            .footer h4 {
+                margin-bottom: 16px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 20.32l-1.396-2.58C9.263 15.26 8.607 13.91 7.985 13.16 7.362 12.41 6.54 12 5.5 12c-1.93 0-3.5-1.57-3.5-3.5 0-2.48 2.015-4.5 4.5-4.5 1.517 0 2.87.75 3.666 1.905.474.686 1.05 1.095 1.834 1.095.783 0 1.36-.408 1.835-1.095C14.63 4.75 15.984 4 17.5 4 19.985 4 22 6.02 22 8.5c0 1.93-1.57 3.5-3.5 3.5-1.04 0-1.862.41-2.486 1.16-.622.748-1.278 2.096-2.618 4.578L12 20.32z" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">ATLANTIS</span>
+                    <span class="logo-sub">DENTAL CLINIC</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#" class="nav-item">Home</a>
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#gallery" class="nav-item">Photos</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </div>
+            <button class="btn btn-gold open-modal">Book Appointment</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text fade-up">
+                <h1>A Smile Worth Trusting</h1>
+                <p>Experience premium dental care in a calm, welcoming environment. Your perfect smile starts here at
+                    Atlantis Dental Clinic.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-gold open-modal">Book Appointment</button>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-up">
+                <svg class="floating-tooth" viewBox="0 0 24 24">
+                    <path
+                        d="M12 20.32l-1.396-2.58C9.263 15.26 8.607 13.91 7.985 13.16 7.362 12.41 6.54 12 5.5 12c-1.93 0-3.5-1.57-3.5-3.5 0-2.48 2.015-4.5 4.5-4.5 1.517 0 2.87.75 3.666 1.905.474.686 1.05 1.095 1.834 1.095.783 0 1.36-.408 1.835-1.095C14.63 4.75 15.984 4 17.5 4 19.985 4 22 6.02 22 8.5c0 1.93-1.57 3.5-3.5 3.5-1.04 0-1.862.41-2.486 1.16-.622.748-1.278 2.096-2.618 4.578L12 20.32z" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item fade-up">
+                <h3>229</h3>
+                <p>Reviews ★ 5.0</p>
+            </div>
+            <div class="stat-item fade-up">
+                <h3>8+</h3>
+                <p>Years of Care</p>
+            </div>
+            <div class="stat-item fade-up">
+                <h3>1000+</h3>
+                <p>Happy Patients</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-120">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">What We Offer</span>
+                <h2 class="section-title">Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg></div>
+                    <h4>Root Canal Treatment</h4>
+                    <p>Painless and efficient care to save infected teeth.</p>
+                </div>
+                <!-- Adding simple diverse SVGs quickly for remaining cards -->
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg></div>
+                    <h4>Pediatric Dental</h4>
+                    <p>Gentle care designed for children's healthy smiles.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                        </svg></div>
+                    <h4>Dental Implants</h4>
+                    <p>Permanent, natural-looking replacement for missing teeth.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg></div>
+                    <h4>Braces & Aligners</h4>
+                    <p>Orthodontic solutions including invisible aligners.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                            <line x1="9" y1="9" x2="9.01" y2="9" />
+                            <line x1="15" y1="9" x2="15.01" y2="9" />
+                        </svg></div>
+                    <h4>Cosmetic Correction</h4>
+                    <p>Veneers and treatments for your perfect smile.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                            <line x1="7" y1="7" x2="7.01" y2="7" />
+                        </svg></div>
+                    <h4>Gum & Laser</h4>
+                    <p>Advanced laser therapy for healthy gums.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg></div>
+                    <h4>Teeth Whitening</h4>
+                    <p>Professional whitening for a brighter, radiant smile.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg></div>
+                    <h4>Dentures</h4>
+                    <p>Fixed and removable high-quality dentures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about py-120">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">Why Choose Us</span>
+                <h2 class="section-title">A Higher Standard of Care</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-item fade-up">
+                    <div class="about-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg></div>
+                    <h4>Expert Doctors</h4>
+                    <p>Our team of specialized professionals brings years of expertise to handle complex and routine
+                        cases alike.</p>
+                </div>
+                <div class="about-item fade-up">
+                    <div class="about-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg></div>
+                    <h4>Modern Equipment</h4>
+                    <p>We use state-of-the-art diagnostic and treatment tools ensuring precise and painless procedures.
+                    </p>
+                </div>
+                <div class="about-item fade-up">
+                    <div class="about-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg></div>
+                    <h4>Patient-First Approach</h4>
+                    <p>Your comfort is our priority. Enjoy a serene environment designed to make your visits
+                        stress-free.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials py-120">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">Testimonials</span>
+                <h2 class="section-title">Patient Stories</h2>
+            </div>
+            <div class="testi-grid">
+                <div class="testi-card fade-up">
+                    <div class="stars">
+                        <!-- 5 stars -->
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </div>
+                    <p class="testi-text">"Absolutely the best dental clinic in Ernakulam. The clinic is incredibly
+                        clean, and the staff treats you wonderfully. My root canal was practically painless."</p>
+                    <div class="testi-author">
+                        <h5>Rahul Menon</h5>
+                        <p>Root Canal Treatment</p>
+                    </div>
+                </div>
+                <div class="testi-card fade-up">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </div>
+                    <p class="testi-text">"Got my clear aligners here. The doctors were very patient in explaining the
+                        whole procedure. The ambiance is very calm and premium."</p>
+                    <div class="testi-author">
+                        <h5>Anjali Nair</h5>
+                        <p>Braces & Aligners</p>
+                    </div>
+                </div>
+                <div class="testi-card fade-up">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </div>
+                    <p class="testi-text">"Took my 5-year old daughter here. She usually fears dentists but the
+                        pediatric specialist was wonderful. Highly recommended!"</p>
+                    <div class="testi-author">
+                        <h5>Karthik V.</h5>
+                        <p>Pediatric Care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery py-120">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">Take a Tour</span>
+                <h2 class="section-title">Clinic Photos</h2>
+            </div>
+            <div class="gallery-filters fade-up">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="clinic">Clinic Tour</button>
+                <button class="filter-btn" data-filter="patient">Happy Patients</button>
+                <button class="filter-btn" data-filter="bva">Before vs After</button>
+            </div>
+            <div class="gallery-grid">
+                <!-- Clinic Tour -->
+                <div class="gallery-item fade-up" data-category="clinic"><img src="images/2.jpg" alt="Clinic Interior">
+                </div>
+                <div class="gallery-item fade-up" data-category="clinic"><img src="images/3.jpg" alt="Treatment Room">
+                </div>
+                <div class="gallery-item fade-up" data-category="clinic"><img src="images/7.jpg" alt="Clinical Setup">
+                </div>
+                <div class="gallery-item fade-up" data-category="clinic"><img src="images/9.jpg"
+                        alt="Hygiene Standards"></div>
+                <div class="gallery-item fade-up" data-category="clinic"><img src="images/10.jpg" alt="Clinic Ambiance">
+                </div>
+                <div class="gallery-item fade-up" data-category="clinic"><img src="images/11.jpg" alt="Patient Area">
+                </div>
+
+                <!-- Before vs After -->
+                <div class="gallery-item fade-up" data-category="bva"><img src="images/5.jpg"
+                        alt="Smile Transformation 1"></div>
+                <div class="gallery-item fade-up" data-category="bva"><img src="images/6.jpg"
+                        alt="Smile Transformation 2"></div>
+                <div class="gallery-item fade-up" data-category="bva"><img src="images/8.jpg" alt="Dental Correction">
+                </div>
+                <div class="gallery-item fade-up" data-category="bva"><img src="images/12.jpg"
+                        alt="Teeth Whitening Result"></div>
+                <div class="gallery-item fade-up" data-category="bva"><img src="images/13.jpg" alt="Orthodontic Result">
+                </div>
+                <div class="gallery-item fade-up" data-category="bva"><img src="images/14.jpg" alt="Procedure Result">
+                </div>
+                <div class="gallery-item fade-up" data-category="bva"><img src="images/15.jpg"
+                        alt="Smile Design Outcome"></div>
+
+                <!-- Happy Patients -->
+                <div class="gallery-item fade-up" data-category="patient"><img src="images/16.jpg"
+                        alt="Happy Patient 1"></div>
+                <div class="gallery-item fade-up" data-category="patient"><img src="images/17.jpg"
+                        alt="Happy Patient 2"></div>
+                <div class="gallery-item fade-up" data-category="patient"><img src="images/18.jpg"
+                        alt="Satisfied Smile"></div>
+                <div class="gallery-item fade-up" data-category="patient"><img src="images/19.jpg" alt="Family Smile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact py-120">
+        <div class="container fade-up">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 class="playfair">Visit Our Clinic</h3>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <div>
+                            <h5>Address</h5>
+                            <p>Kizhavana Rd, Atlantis, Ravipuram Jn,<br>Ernakulam, Kerala 682015</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <div>
+                            <h5>Contact</h5>
+                            <p><a href="tel:8848832050">88488 32050</a><br><a href="tel:7736860337">77368 60337</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <div>
+                            <h5>Hours</h5>
+                            <p>Mon–Sat: 9:30 AM – 8:00 PM<br>Sun: 10:00 AM – 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=9.9557005,76.2926012&hl=en&z=15&output=embed"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid fade-up">
+                <div>
+                    <div class="footer-logo logo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 20.32l-1.396-2.58C9.263 15.26 8.607 13.91 7.985 13.16 7.362 12.41 6.54 12 5.5 12c-1.93 0-3.5-1.57-3.5-3.5 0-2.48 2.015-4.5 4.5-4.5 1.517 0 2.87.75 3.666 1.905.474.686 1.05 1.095 1.834 1.095.783 0 1.36-.408 1.835-1.095C14.63 4.75 15.984 4 17.5 4 19.985 4 22 6.02 22 8.5c0 1.93-1.57 3.5-3.5 3.5-1.04 0-1.862.41-2.486 1.16-.622.748-1.278 2.096-2.618 4.578L12 20.32z" />
+                        </svg>
+                        <div class="logo-text">
+                            <span class="logo-title">ATLANTIS</span>
+                            <span class="logo-sub">DENTAL CLINIC</span>
+                        </div>
+                    </div>
+                    <p style="max-width:300px; margin-bottom:20px;">Dental Care You Trust. Experience world-class dental
+                        treatments in Ernakulam with our expert team.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#about">Why Choose Us</a></li>
+                        <li><a href="#gallery">Clinic Photos</a></li>
+                        <li><a href="#contact">Contact & Location</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Book an Appointment</h4>
+                    <p style="margin-bottom: 20px;">Ready for your perfect smile? Schedule your visit today.</p>
+                    <button class="btn btn-gold open-modal">Book Now</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Atlantis Dental Clinic. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal-overlay" id="appointmentModal">
+        <div class="modal">
+            <button class="close-modal"><svg viewBox="0 0 24 24">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" />
+                </svg></button>
+            <h3 class="playfair">Request Appointment</h3>
+            <p>Fill out the form below and we'll contact you to confirm.</p>
+            <form
+                onsubmit="event.preventDefault(); alert('Appointment Request Sent!'); document.querySelector('.close-modal').click();">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="Your Number" required>
+                </div>
+                <div class="form-group">
+                    <label>Service Interested In</label>
+                    <select class="form-control" required>
+                        <option value="" disabled selected>Select a Service</option>
+                        <option>General Checkup</option>
+                        <option>Root Canal</option>
+                        <option>Dental Implants</option>
+                        <option>Braces / Aligners</option>
+                        <option>Cosmetic Treatment</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date</label>
+                    <input type="date" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar Scrolled Effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+            // Modal
+            const modal = document.getElementById('appointmentModal');
+            document.querySelectorAll('.open-modal').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                });
+            });
+            document.querySelector('.close-modal').addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+
+            // Lightbox logic
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.innerHTML = `
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-img" src="" alt="Full View">
+            `;
+            document.body.appendChild(lightbox);
+
+            const lbImg = lightbox.querySelector('.lightbox-img');
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', () => {
+                    lbImg.src = img.src;
+                    lightbox.style.display = 'flex';
+                    setTimeout(() => lightbox.classList.add('active'), 10);
+                });
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target !== lbImg) {
+                    lightbox.classList.remove('active');
+                    setTimeout(() => lightbox.style.display = 'none', 300);
+                }
+            });
+
+            // Gallery Filtering Logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            // Default active tab: Clinic Tour on mobile screen initially
+            if (window.innerWidth <= 768) {
+                const clinicBtn = document.querySelector('.filter-btn[data-filter="clinic"]');
+                const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+                if (clinicBtn && allBtn) {
+                    allBtn.classList.remove('active');
+                    clinicBtn.classList.add('active');
+                    galleryItems.forEach(item => {
+                        if (item.dataset.category === 'clinic') {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        } else {
+                            item.style.display = 'none';
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                        }
+                    });
+                }
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    galleryItems.forEach(item => {
+                        const shouldShow = filter === 'all' || item.dataset.category === filter;
+                        if (shouldShow) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 400);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
