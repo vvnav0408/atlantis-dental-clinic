@@ -561,6 +561,10 @@
             color: var(--white);
         }
 
+        .footer-logo svg {
+            fill: var(--white);
+        }
+
         .footer h4 {
             color: var(--white);
             font-size: 1.25rem;
@@ -785,29 +789,161 @@
                 display: none;
             }
 
+            /* 1. Hero Spacing and Icon */
+            .hero {
+                padding-top: 90px;
+                min-height: auto;
+                padding-bottom: 40px;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.75rem;
+                margin-bottom: 16px;
             }
 
             .hero-text p {
-                margin: 0 auto 40px;
+                font-size: 1.1rem;
+                margin: 0 auto 24px;
+                max-width: 100%;
             }
 
             .hero-buttons {
                 justify-content: center;
+                gap: 15px;
             }
 
-            .stats-grid,
-            .about-grid,
-            .testi-grid,
-            .contact-grid,
-            .footer-grid {
+            .hero-visual {
+                height: 280px;
+                width: 280px;
+                margin: 0 auto;
+                border-radius: 140px 140px 20px 20px;
+            }
+
+            .floating-tooth {
+                width: 80px;
+                height: 80px;
+            }
+
+            /* 2. General Section Spacing */
+            .py-120 {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 35px;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            /* Grid optimizations */
+            .services-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .about-item {
+                padding: 24px 16px;
+            }
+
+            .testi-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .testi-card {
+                padding: 30px 20px;
+            }
+
+            /* 3. Testimonials Top Spacing */
+            .testimonials {
+                padding-top: 40px;
+            }
+
+            /* 5. Clinic Photos Spacing */
+            .gallery {
+                padding-bottom: 40px;
+            }
+
+            .gallery-filters {
+                margin-bottom: 30px;
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            /* 6. Contact Section & Map Separation */
+            .contact {
+                padding-top: 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                box-shadow: none;
+                background: transparent;
+                overflow: visible;
+                border-radius: 0;
+                gap: 24px;
             }
 
             .contact-info {
-                padding: 40px 20px;
+                padding: 40px 24px;
+                border-radius: 20px;
+                box-shadow: var(--shadow-md);
+            }
+
+            .map-container {
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: var(--shadow-md);
+                height: 300px;
+            }
+
+            .map-container iframe {
+                min-height: 300px;
+            }
+
+            /* Footer gap and padding */
+            .footer {
+                padding: 60px 0 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                margin-bottom: 40px;
+            }
+
+            .footer h4 {
+                margin-bottom: 16px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -818,7 +954,9 @@
     <nav class="navbar">
         <div class="container nav-content">
             <a href="#" class="logo">
-                <img src="images/logo.jpg" alt="Atlantis Dental Logo" class="logo-img">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 20.32l-1.396-2.58C9.263 15.26 8.607 13.91 7.985 13.16 7.362 12.41 6.54 12 5.5 12c-1.93 0-3.5-1.57-3.5-3.5 0-2.48 2.015-4.5 4.5-4.5 1.517 0 2.87.75 3.666 1.905.474.686 1.05 1.095 1.834 1.095.783 0 1.36-.408 1.835-1.095C14.63 4.75 15.984 4 17.5 4 19.985 4 22 6.02 22 8.5c0 1.93-1.57 3.5-3.5 3.5-1.04 0-1.862.41-2.486 1.16-.622.748-1.278 2.096-2.618 4.578L12 20.32z" />
+                </svg>
                 <div class="logo-text">
                     <span class="logo-title">ATLANTIS</span>
                     <span class="logo-sub">DENTAL CLINIC</span>
@@ -1200,8 +1338,9 @@
             <div class="footer-grid fade-up">
                 <div>
                     <div class="footer-logo logo">
-                        <img src="images/logo.jpg" alt="Atlantis Dental Logo" class="logo-img"
-                            style="height: 40px; mix-blend-mode: multiply;">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 20.32l-1.396-2.58C9.263 15.26 8.607 13.91 7.985 13.16 7.362 12.41 6.54 12 5.5 12c-1.93 0-3.5-1.57-3.5-3.5 0-2.48 2.015-4.5 4.5-4.5 1.517 0 2.87.75 3.666 1.905.474.686 1.05 1.095 1.834 1.095.783 0 1.36-.408 1.835-1.095C14.63 4.75 15.984 4 17.5 4 19.985 4 22 6.02 22 8.5c0 1.93-1.57 3.5-3.5 3.5-1.04 0-1.862.41-2.486 1.16-.622.748-1.278 2.096-2.618 4.578L12 20.32z" />
+                        </svg>
                         <div class="logo-text">
                             <span class="logo-title">ATLANTIS</span>
                             <span class="logo-sub">DENTAL CLINIC</span>
@@ -1336,6 +1475,27 @@
             // Gallery Filtering Logic
             const filterBtns = document.querySelectorAll('.filter-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
+
+            // Default active tab: Clinic Tour on mobile screen initially
+            if (window.innerWidth <= 768) {
+                const clinicBtn = document.querySelector('.filter-btn[data-filter="clinic"]');
+                const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+                if (clinicBtn && allBtn) {
+                    allBtn.classList.remove('active');
+                    clinicBtn.classList.add('active');
+                    galleryItems.forEach(item => {
+                        if (item.dataset.category === 'clinic') {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        } else {
+                            item.style.display = 'none';
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                        }
+                    });
+                }
+            }
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
